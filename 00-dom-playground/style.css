@@ -3,3 +3,132 @@ body {
   margin: 0;
   padding: 0;
 }
+.container {
+  margin: auto;
+  padding-inline: 120px;
+}
+@media (max-width: 991px) {
+  .container {
+    padding-inline: 80px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    padding-inline: 30px;
+  }
+}
+nav {
+  border-bottom: 1px solid #c0bdbd;
+}
+nav > .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav > .container > h1 {
+  font-weight: normal;
+}
+nav > .container > .theme {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: burlywood;
+  color: white;
+  cursor: pointer;
+}
+.main-section > .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding-block: 60px;
+}
+@media (max-width: 991px) {
+  .main-section > .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .main-section > .container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.main-section > .container > .card {
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 1px 0px 15px 0px #c7c4c4;
+}
+.main-section .counter-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.main-section .counter-container .counter {
+  font-size: 100px;
+  margin: 0;
+}
+.main-section .counter-container .counter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-block: 10px;
+}
+.main-section .counter-container .counter-buttons button,
+.main-section .visibilty-container .visibilty-handler,
+.main-section .modal-container .modal-handler {
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: burlywood;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.main-section .visibilty-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.main-section .visibilty-container > div {
+  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+.main-section .visibilty-container .visibilty-handler {
+  margin-inline: auto;
+  font-size: 16px;
+}
+.main-section .tabs-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.main-section .tabs-container .tab {
+  padding: 0px 10px;
+  border-radius: 5px;
+  border: 1px solid burlywood;
+  box-sizing: border-box;
+}
+.main-section .tabs-container .tab .tab-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main-section .tabs-container .tab .tab-header .title {
+  font-weight: normal;
+}
+.main-section .tabs-container .tab .tab-header .toggeler {
+  color: burlywood;
+  font-size: 25px;
+  font-weight: bolder;
+}
+.main-section .tabs-container .tab .show-tab {
+  display: none;
+}
+.main-section .modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
