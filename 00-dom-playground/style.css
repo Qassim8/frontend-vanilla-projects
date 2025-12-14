@@ -132,3 +132,9 @@ nav > .container > .theme {
   justify-content: center;
   align-items: center;
 }
+.visible-text {
+  display: block;
+}
+.invisible-text {
+  display: none;
+}
