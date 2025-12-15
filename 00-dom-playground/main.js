@@ -92,3 +92,19 @@ btnThemeHandler.addEventListener("click", () => {
 
   window.location.reload();
 });
+/////////////////////////////////////////////////////////////////////////
+// Handling modal
+let modalShower = document.querySelector(".modal-handler");
+let modalBody = document.querySelector(".modal");
+
+modalShower.addEventListener("click", () => {
+  modalBody.style.display = "flex ";
+});
+
+modalBody.addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal")) {
+    e.target.style.display = "none";
+  } else if (e.target.classList.contains("close")) {
+    modalBody.style.display = "none";
+  }
+});

@@ -156,4 +156,23 @@ nav > .container > .theme-btn {
   top: 0;
   left: 0;
   background-color: rgba(100, 100, 111, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: all 6s ease-in-out;
+}
+.modal .modal-card {
+  position: absolute;
+  background-color: var(--main-bg);
+  height: 200px;
+  width: 400px;
+  padding: 15px;
+  border-radius: 10px;
+}
+.modal .modal-card .close {
+  position: absolute;
+  top: -25px;
+  right: 12.5px;
+  font-size: 25px;
+  cursor: pointer;
 }
