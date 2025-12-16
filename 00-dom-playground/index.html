@@ -12,69 +12,86 @@
       <div class="container">
         <h1 class="text-light">DOM</h1>
         <!-- handling page mode -->
-        <button class="theme-btn text-light bg-light">Dark</button>
+        <button class="theme-btn text-light bg-light" data-theme-toggle>
+          Dark
+        </button>
       </div>
     </nav>
     <section class="main-section">
       <div class="container">
         <div class="counter-container card">
-          <h2 class="counter text-light"></h2>
-          <div class="counter-buttons">
+          <h2 class="counter text-light" data-counter></h2>
+          <div class="counter-buttons" data-counter-buttons>
             <!-- handling icrement -->
-            <button class="increse bg-light text-light">+</button>
+            <button
+              class="increase bg-light text-light"
+              data-counter-action="increase"
+            >
+              +
+            </button>
             <!-- handling dicrement -->
-            <button class="dicrese bg-light text-light">-</button>
+            <button
+              class="dicrease bg-light text-light"
+              data-counter-action="dicrease"
+            >
+              -
+            </button>
           </div>
         </div>
         <div class="visibilty-container card">
-          <div class="visible visible-text text-light">
+          <div class="visible visible-text text-light" data-visible-text>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis
             aspernatur dolorem, beatae saepe ratione a, quisquam minus
             accusantium, quasi sequi soluta modi deserunt quaerat accusamus
             consequuntur nisi recusandae alias laboriosam?
           </div>
           <!-- handling section visibilty -->
-          <button class="visibilty-handler text-light bg-light">
-            hide section
+          <button
+            class="visibilty-handler text-light bg-light"
+            data-visibilty-handler
+          >
+            Hide Text
           </button>
         </div>
         <div class="modal-container card">
           <!-- handling modal showing -->
-          <button class="modal-handler text-light bg-light">show modal</button>
+          <button class="modal-handler text-light bg-light" data-modal-opener>
+            show modal
+          </button>
         </div>
 
         <div class="tabs-container card">
           <!-- handling tabs visibilty -->
-          <div class="tab first-tab">
-            <div class="tab-header">
+          <div class="tab first-tab" data-tab>
+            <div class="tab-header" data-tab-header>
               <h3 class="title text-light">Tab 1</h3>
-              <div class="toggeler">+</div>
+              <div class="toggeler" data-tab-toggler>+</div>
             </div>
-            <p class="show-tab invisible-text text-light">
+            <p class="show-tab invisible-text text-light" data-tab-content>
               tab1 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               Blanditiis aspernatur dolorem, beatae saepe ratione a, quisquam
               minus accusantium, quasi sequi soluta modi deserunt quaerat
               accusamus consequuntur nisi recusandae alias laboriosam?
             </p>
           </div>
-          <div class="tab second-tab">
-            <div class="tab-header">
+          <div class="tab first-tab" data-tab>
+            <div class="tab-header" data-tab-header>
               <h3 class="title text-light">Tab 2</h3>
-              <div class="toggeler">+</div>
+              <div class="toggeler" data-tab-toggler>+</div>
             </div>
-            <p class="show-tab invisible-text text-light">
+            <p class="show-tab invisible-text text-light" data-tab-content>
               tab 2 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               Blanditiis aspernatur dolorem, beatae saepe ratione a, quisquam
               minus accusantium, quasi sequi soluta modi deserunt quaerat
               accusamus consequuntur nisi recusandae alias laboriosam?
             </p>
           </div>
-          <div class="tab third-tab">
-            <div class="tab-header">
+          <div class="tab first-tab" data-tab>
+            <div class="tab-header" data-tab-header>
               <h3 class="title text-light">Tab 3</h3>
-              <div class="toggeler">+</div>
+              <div class="toggeler" data-tab-toggler>+</div>
             </div>
-            <p class="show-tab invisible-text text-light">
+            <p class="show-tab invisible-text text-light" data-tab-content>
               tab 3 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               Blanditiis aspernatur dolorem, beatae saepe ratione a, quisquam
               minus accusantium, quasi sequi soluta modi deserunt quaerat
@@ -84,9 +101,9 @@
         </div>
       </div>
     </section>
-    <div class="modal">
+    <div class="modal" data-modal>
       <div class="modal-card">
-        <p class="text-light close">x</p>
+        <p class="text-light close" data-modal-closer>x</p>
         <p class="text-light">Modal</p>
       </div>
     </div>

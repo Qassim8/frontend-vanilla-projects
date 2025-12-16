@@ -1,110 +1,79 @@
 "use-strict";
 // Counter Logic
-let counter = document.querySelector(".counter");
-let counterButtons = document.querySelector(".counter-buttons");
+let counter = document.querySelector("[data-counter]");
+let counterButtons = document.querySelector("[data-counter-buttons]");
 let counterValue = 0;
 counter.textContent = counterValue;
 
 counterButtons.addEventListener("click", (e) => {
-  if (e.target.className === "increse") incrementHandler(counterValue);
-  if (e.target.className === "dicrese") dicrementHandler(counterValue);
+  if (e.target.matches("[data-counter-action='increase']")) counterValue++;
+  if (e.target.matches("[data-counter-action='dicrease']"))
+    counterValue = Math.max(0, counterValue - 1);
+
+  counter.textContent = counterValue;
 });
-const incrementHandler = () => {
-  counterValue++;
-  return (counter.textContent = counterValue);
-};
-const dicrementHandler = () => {
-  if (counterValue > 0) counterValue--;
-  return (counter.textContent = counterValue);
-};
 
 ///////////////////////////////////////////////////
 // Show & Hide Element Logic
-let visibiltyHandlerBtn = document.querySelector(".visibilty-handler");
-let text = document.querySelector(".visible");
+let visibiltyHandlerBtn = document.querySelector("[data-visibilty-handler]");
 
 visibiltyHandlerBtn.addEventListener("click", (e) => {
-  visibiltyHandler(e);
+  const text = document.querySelector("[data-visible-text]");
+  const isVisible = text.classList.toggle("invisible-text");
+
+  e.target.textContent = !isVisible ? "Hide Text" : "Show Text";
 });
-
-const visibiltyHandler = (e) => {
-  if (text.classList.contains("visible-text")) {
-    handleInvisible(e);
-  } else {
-    handleVisible(e);
-  }
-};
-
-const handleVisible = (e) => {
-  e.target.textContent = "Hide Text";
-  text.classList.remove("invisible-text");
-  text.classList.add("visible-text");
-};
-const handleInvisible = (e) => {
-  e.target.textContent = "Show Text";
-  text.classList.remove("visible-text");
-  text.classList.add("invisible-text");
-};
 
 /////////////////////////////////////////////////////////
 // Show & Hide Tabs Logic
 let tabs = document.querySelector(".tabs-container");
-let toggeler = document.querySelector(".toggeler");
 
 tabs.addEventListener("click", (e) => {
-  if (e.target.nextElementSibling.classList.contains("invisible-text")) {
-    e.target.nextElementSibling.classList.remove("invisible-text");
-    e.target.nextElementSibling.classList.add("visible-text");
-    e.target.children[1].textContent = "-";
-  } else {
-    e.target.nextElementSibling.classList.remove("visible-text");
-    e.target.nextElementSibling.classList.add("invisible-text");
-    e.target.children[1].textContent = "+";
-  }
+  const tabHeader = e.target.closest("[data-tab-header]");
+
+  if (!tabHeader) return;
+
+  const tabToggler = tabHeader.querySelector("[data-tab-toggler]");
+  const tab = tabHeader.closest("[data-tab]");
+  const tabText = tab.querySelector("[data-tab-content]");
+  const isOpen = tabText.classList.contains("invisible-text");
+
+  tabToggler.textContent = !isOpen ? "+" : "-";
+  tabText.classList.toggle("invisible-text");
 });
 /////////////////////////////////////////////////////////
 // Handling theme
-let btnThemeHandler = document.querySelector(".theme-btn");
-let themeValue = localStorage.getItem("theme");
+const themeBtn = document.querySelector("[data-theme-toggle]");
+const root = document.documentElement;
 
-if (localStorage.getItem("theme") === "dark") {
-  document.body.style.backgroundColor = "#222";
-  btnThemeHandler.textContent = "Light";
-  document.documentElement.style.setProperty("--main-color", "#999");
-  document.documentElement.style.setProperty(
-    "--main-bg",
-    "rgba(128, 104, 74, 1)"
-  );
-  document.documentElement.style.setProperty("--shadow", "");
-} else {
-  document.body.style.backgroundColor = "#f0f0f0";
-  btnThemeHandler.textContent = "Dark";
-  document.documentElement.style.setProperty("--main-color", "#222");
-  document.documentElement.style.setProperty("--main-bg", "burlywood");
-  document.documentElement.style.setProperty("--shadow", "#c7c4c4");
-}
-btnThemeHandler.addEventListener("click", () => {
-  if (localStorage.getItem("theme") === "dark") {
-    localStorage.setItem("theme", "light");
-  } else {
-    localStorage.setItem("theme", "dark");
-  }
+const currentTheme = localStorage.getItem("theme") || "light";
+root.dataset.theme = currentTheme;
+themeBtn.textContent = currentTheme === "dark" ? "Light" : "Dark";
 
-  window.location.reload();
+themeBtn.addEventListener("click", () => {
+  const newTheme = root.dataset.theme === "dark" ? "light" : "dark";
+  root.dataset.theme = newTheme;
+  localStorage.setItem("theme", newTheme);
+  themeBtn.textContent = newTheme === "dark" ? "Light" : "Dark";
 });
 /////////////////////////////////////////////////////////////////////////
 // Handling modal
-let modalShower = document.querySelector(".modal-handler");
-let modalBody = document.querySelector(".modal");
+let modalShower = document.querySelector("[data-modal-opener]");
+let modalBody = document.querySelector("[data-modal]");
+let modalCloser = document.querySelector("[data-modal-closer]");
 
 modalShower.addEventListener("click", () => {
-  modalBody.style.display = "flex ";
+  modalBody.classList.add("is-open");
 });
 
 modalBody.addEventListener("click", (e) => {
-  if (e.target.classList.contains("modal")) {
-    e.target.style.display = "none";
-  } else if (e.target.classList.contains("close")) {
-    modalBody.style.display = "none";
+  const modal = e.target.closest("[data-modal]");
+
+  if (e.target === modalBody || modal) {
+    modal.classList.remove("is-open");
   }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") modalBody.classList.remove("is-open");
 });

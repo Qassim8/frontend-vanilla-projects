@@ -1,12 +1,21 @@
-:root {
+:root[data-theme="dark"] {
+  --main-color: #999;
+  --main-bg: rgba(128, 104, 74, 1);
+  --background: rgb(33, 33, 35);
+  --shadow: rgba(70, 70, 72, 0.423);
+}
+
+:root[data-theme="light"] {
   --main-color: #222;
   --main-bg: burlywood;
   --shadow: rgba(100, 100, 111, 0.2);
+  --background: #ffffff;
 }
 body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  background-color: var(--background);
 }
 .text-light {
   color: var(--main-color);
@@ -135,19 +144,14 @@ nav > .container > .theme-btn {
   font-size: 25px;
   font-weight: bolder;
 }
-.main-section .tabs-container .tab .show-tab {
-  display: none;
-}
+
 .main-section .modal-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.visible-text {
-  display: block !important;
-}
 .invisible-text {
-  display: none !important;
+  display: none;
 }
 .modal {
   position: fixed;
@@ -160,6 +164,9 @@ nav > .container > .theme-btn {
   justify-content: center;
   align-items: center;
   transition: all 6s ease-in-out;
+}
+.modal.is-open {
+  display: flex;
 }
 .modal .modal-card {
   position: absolute;
