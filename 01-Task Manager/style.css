@@ -1,0 +1,97 @@
+:root {
+  --mainColor: #5b0f6f;
+  --altColor: #821d9b;
+}
+body {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
+    sans-serif;
+  background-image: linear-gradient(to left, #520380, #3a025b);
+}
+.title {
+  color: #c9c8c8;
+  font-weight: normal;
+}
+.add-item-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.add-item-section input,
+.add-item-section button {
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+}
+.add-item-section input {
+  width: 200px;
+  background-color: transparent;
+  border: 1px solid #d68aff;
+  border-radius: 10px 0 0 10px;
+}
+.add-item-section button {
+  color: #c9c8c8;
+  background-color: var(--altColor);
+  border: 1px solid transparent;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+}
+.lists-container {
+  margin: 30px auto;
+  padding: 20px;
+  width: 600px;
+  background-color: #2e1a496b;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.lists-container .list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  padding: 15px;
+  background-color: #836a97;
+  border-radius: 10px;
+}
+.lists-container .list-item .first-section {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.lists-container .list-item .item-text {
+  font-size: 20px;
+  color: #c9c8c8;
+}
+.lists-container .list-item .list-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.lists-container .list-item .list-actions button {
+  color: #c9c8c8;
+  background-image: linear-gradient(
+    to right,
+    var(--altColor),
+    var(--mainColor)
+  );
+  font-size: 16px;
+  padding: 5px 15px;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+/* .lists-container .list-item .list-actions button:first-of-type {
+  background-color: #cb513c;
+}
+.lists-container .list-item .list-actions button:last-of-type {
+  background-color: #275abe;
+} */
+.compeleted {
+  text-decoration: line-through;
+}

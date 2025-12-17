@@ -4,6 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <h1 class="title">To Do List</h1>
+    <div class="add-item-section">
+      <input type="text" placeholder="Add Item" data-item-value />
+      <button data-add-item>Add To List</button>
+    </div>
+    <div class="lists-container" data-lists>
+      <div class="list-item" data-list-item>
+        <div class="first-section">
+          <input type="checkbox" class="completed" data-completed-action />
+          <div class="item-text" data-item-text>First Task</div>
+        </div>
+        <div class="list-actions" data-list-actions>
+          <button>delete</button><button>edit</button>
+        </div>
+      </div>
+      <div class="list-item" data-list-item>
+        <div class="first-section">
+          <input type="checkbox" class="completed" data-completed-action />
+          <div class="item-text" data-item-text>First Task</div>
+        </div>
+        <div class="list-actions" data-list-actions>
+          <button>delete</button><button>edit</button>
+        </div>
+      </div>
+      <div class="list-item" data-list-item>
+        <div class="first-section">
+          <input type="checkbox" class="completed" data-completed-action />
+          <div class="item-text" data-item-text>First Task</div>
+        </div>
+        <div class="list-actions" data-list-actions>
+          <button>delete</button><button>edit</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
 </html>
